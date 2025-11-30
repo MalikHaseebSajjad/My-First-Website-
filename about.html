@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Veloura</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+    --primary: #0d0b0a;
+    --secondary: #111;
+    --accent: #d4af37;
+    --accent-hover: #f5e7b2;
+    --text: #fff;
+    --text-light: #cfcfcf;
+    --glass: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --transition: 0.35s ease;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--primary);
+    color: var(--text);
+    line-height:1.5;
+}
+
+a { text-decoration: none; color: var(--text-light); }
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+}
+
+.navbar {
+    width: 90%; 
+    margin: auto;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 3px;
+}
+
+.nav-menu { display: flex; gap: 2rem; }
+.nav-menu a { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; transition: var(--transition); }
+.nav-menu a:hover { color: var(--accent); }
+
+/* HERO */
+.about-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('images/download (2).png') center/cover no-repeat;
+}
+.about-hero h1 { font-family: 'Playfair Display', serif; font-size:3.5rem; color: var(--accent); }
+.about-hero p { font-size:1.3rem; color: var(--text-light); margin-top:1rem; max-width:700px; margin-left:auto; margin-right:auto; }
+
+/* SECTIONS */
+section { padding:100px 0; }
+.section-title { text-align:center; font-family:'Playfair Display', serif; font-size:3rem; margin-bottom:3rem; color: var(--accent-hover); }
+
+/* ABOUT CONTENT */
+.about-content {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    width: 90%;
+    margin:auto;
+    align-items:center;
+}
+.about-content img { width:100%; border-radius: var(--radius); border:1px solid rgba(212,175,55,0.3); }
+.about-text h2 { font-size:2.5rem; color:var(--accent); margin-bottom:20px; }
+.about-text p { margin-bottom:15px; color: var(--text-light); }
+
+/* MISSION / VISION */
+.mission-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+    width:90%;
+    margin:auto;
+}
+.mission-card {
+    background: var(--secondary);
+    padding:30px;
+    border-radius:var(--radius);
+    border:1px solid rgba(212,175,55,0.2);
+    text-align:center;
+}
+.mission-card i { font-size:2rem; color: var(--accent); margin-bottom:15px; }
+.mission-card h3 { font-size:1.5rem; margin-bottom:10px; }
+.mission-card p { color: var(--text-light); }
+
+/* FOOTER */
+footer {
+    padding:80px 0 20px;
+    background: var(--primary);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-light);
+}
+.footer-content {
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:40px;
+}
+.footer-links a { margin-bottom:8px; display:block; }
+.footer-links a:hover { color: var(--accent); }
+
+@media (max-width:768px){
+    .about-content { grid-template-columns:1fr; gap:40px; }
+    .about-hero h1 { font-size:2.5rem; }
+    .about-hero p { font-size:1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="navbar">
+        <div class="logo">Veloura</div>
+        <div class="nav-menu">
+            <a href="veloura.html">Home</a>
+        
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div>
+        <h1>About Veloura</h1>
+        <p>Redefining premium fashion through creativity and elegance. Quality, service, and timeless style are at the core of everything we do.</p>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section>
+    <div class="about-content">
+        <div class="about-text">
+            <h2>Our Story</h2>
+            <p>Founded in Islamabad, Veloura has been a symbol of premium craftsmanship and timeless fashion. Our collections combine modern trends with classic elegance, ensuring each piece resonates with style-conscious individuals.</p>
+            <p>We strive to deliver exceptional quality, curated experiences, and attention to detail, whether it's tailored suiting, seasonal essentials, or casual wear.</p>
+        </div>
+        <div>
+            <img src="images/contact hero section.png" alt="Veloura Team or Store">
+        </div>
+    </div>
+</section>
+
+<!-- MISSION / VISION -->
+<section>
+    <h2 class="section-title">Our Mission & Values</h2>
+    <div class="mission-container">
+        <div class="mission-card">
+            <i class="fas fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>To redefine premium fashion through creativity, craftsmanship, and exceptional customer experience.</p>
+        </div>
+        <div class="mission-card">
+            <i class="fas fa-eye"></i>
+            <h3>Our Vision</h3>
+            <p>To become a global leader in contemporary luxury fashion while staying true to our heritage and values.</p>
+        </div>
+        <div class="mission-card">
+            <i class="fas fa-heart"></i>
+            <h3>Our Values</h3>
+            <p>Quality, elegance, sustainability, and integrity guide every decision we make and every product we craft.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>Veloura</h3>
+            <p>Redefining premium fashion through creativity and elegance.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Explore</h4>
+            <a href="shop.html">Men</a>
+            <a href="shop.html">Women</a>
+            <a href="shop.html">Kids</a>
+            <a href="collections.html">Collections</a>
+        </div>
+        <div class="footer-links">
+            <h4>Contact</h4>
+            <a href="contact.html">Contact Us</a>
+            <a href="contact.html">FAQs</a>
+            <a href="mailto:info@veloura.com">Email</a>
+            <a href="#">Policies</a>
+        </div>
+    </div>
+    <p style="text-align:center;margin-top:40px;color:var(--text-light);font-size:.9rem;">© 2025 Veloura. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

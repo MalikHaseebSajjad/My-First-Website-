@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veloura — Men's Collection (A)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0d0b0a;
+      --card:#0f0f0f;
+      --accent:#d6b24a;
+      --muted:#bdb7ad;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      background:linear-gradient(180deg,#070606 0%, #0d0b0a 100%);
+      color:#eee;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.3;
+    }
+
+    /* NAV */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 36px;
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(6px);
+      z-index:50;
+      background: linear-gradient(180deg, rgba(13,11,10,0.6), rgba(13,11,10,0.2));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .brand{font-family:'Playfair Display',serif; font-size:28px; color:var(--accent); letter-spacing:0.6px}
+    nav a{color:rgba(255,255,255,0.75); text-decoration:none; margin-left:18px; font-weight:600; font-size:14px}
+    nav a:hover{color:#fff; text-decoration:underline}
+
+    /* HERO */
+    /* HERO */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('images/men hero section.png') center top no-repeat;
+  background-size: cover; /* fills top completely */
+  z-index: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  width: 100%;
+  padding: 36px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: 10px;
+  max-width: 720px;
+}
+
+.hero .cta {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+    .btn{
+      background:var(--accent);
+      color:#111;
+      padding:12px 22px;
+      border-radius:999px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 8px 30px rgba(214,178,74,0.08);
+      transition:transform .22s ease, box-shadow .22s;
+    }
+    .btn:hover{ transform:translateY(-3px); box-shadow:0 18px 36px rgba(214,178,74,0.12) }
+
+    /* FILTERS + GRID */
+    .container{ max-width:1200px; margin:36px auto; padding:0 20px }
+    .filters{
+      display:flex; gap:12px; align-items:center; margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      padding:8px 14px; background:var(--glass); border-radius:999px; cursor:pointer; color:var(--muted);
+      border:1px solid rgba(255,255,255,0.03); font-weight:600; font-size:13px;
+    }
+    .chip.active{ background: linear-gradient(90deg, rgba(214,178,74,0.12), rgba(214,178,74,0.05)); color:var(--accent) }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:20px;
+    }
+    /* product card */
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
+    }
+    .card:hover{ transform:translateY(-10px) scale(1.01); box-shadow: 0 28px 60px rgba(2,2,2,0.6) }
+    .card .media{
+      height:320px; background:#111 center/cover no-repeat;
+      display:block;
+      transition: transform .6s ease;
+    }
+    .card:hover .media{ transform: scale(1.07) }
+    .card .info{
+      padding:18px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .product-title{ font-weight:700; font-size:16px; color:#fff }
+    .price{ color:var(--muted); font-weight:600 }
+
+    .overlay-actions{
+      position:absolute; top:12px; right:12px; display:flex; gap:8px; z-index:4;
+    }
+    .icon-btn{
+      background:rgba(255,255,255,0.06); padding:8px; border-radius:999px; color:#fff; cursor:pointer; border: none;
+    }
+    /* Responsive */
+    @media (max-width:1100px){
+      .grid{ grid-template-columns: repeat(3,1fr) }
+      .hero h1{ font-size:44px }
+    }
+    @media (max-width:820px){
+      .grid{ grid-template-columns: repeat(2,1fr) }
+      .hero{ height:48vh }
+    }
+    @media (max-width:480px){
+      .grid{ grid-template-columns: 1fr }
+      .hero h1{ font-size:28px }
+      header{ padding:12px 16px }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Veloura</div>
+    <nav>
+      <a href="veloura.html">Home</a>
+      <a href="women.html">Women</a>
+      <a href="kids.html">Kids</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+ <!-- HERO SECTION -->
+<section class="hero" aria-hidden="false">
+  <div class="bg" role="img"></div>
+
+  <div class="content">
+    <div>
+      <h1>Men's Collection</h1>
+      <p>Tailored craftsmanship and modern heritage — premium suiting, knitwear, and seasonal essentials designed with timeless taste.</p>
+      <div style="margin-top:18px">
+        <button class="btn" onclick="location.href='#catalog'">Explore Collection</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <main class="container" id="catalog">
+    <div class="filters" role="toolbar" aria-label="product filters">
+      <div class="chip active" data-filter="all">All</div>
+      <div class="chip" data-filter="formal">Formal</div>
+      <div class="chip" data-filter="casual">Casual</div>
+      <div class="chip" data-filter="winter">Winter</div>
+    </div>
+
+    <div class="grid" id="grid">
+  <!-- Product 0 -->
+  <div class="card" data-tags="formal">
+    <button class="overlay-actions icon-btn" title="Quick view">👁</button>
+    <div class="media" style="background-image:url('images/men (0).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Classic Wool Suit</div>
+        <div class="price">PKR 42,500</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 1 -->
+  <div class="card" data-tags="formal">
+    <div class="media" style="background-image:url('images/men (9).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Double-Breasted Blazer</div>
+        <div class="price">PKR 28,900</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="card" data-tags="formal">
+    <div class="media" style="background-image:url('images/men (3).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Tailored Dress Trousers</div>
+        <div class="price">PKR 12,800</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 3 -->
+  <div class="card" data-tags="casual">
+    <div class="media" style="background-image:url('images/men (8).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Premium Cotton Polo</div>
+        <div class="price">PKR 6,200</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 4 -->
+  <div class="card" data-tags="casual">
+    <div class="media" style="background-image:url('images/men (2).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Designer Denim Jeans</div>
+        <div class="price">PKR 14,500</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 5 -->
+  <div class="card" data-tags="casual">
+    <div class="media" style="background-image:url('images/men (5).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Linen Casual Shirt</div>
+        <div class="price">PKR 8,900</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 6 -->
+  <div class="card" data-tags="winter">
+    <div class="media" style="background-image:url('images/men (6).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Cashmere Hoodie</div>
+        <div class="price">PKR 22,000</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 7 -->
+  <div class="card" data-tags="winter">
+    <div class="media" style="background-image:url('images/men (4).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Cashmere Overcoat</div>
+        <div class="price">PKR 38,500</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 8 -->
+  <div class="card" data-tags="winter">
+    <div class="media" style="background-image:url('images/men (7).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Merino Wool Sweater</div>
+        <div class="price">PKR 16,800</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 9 -->
+  <div class="card" data-tags="winter">
+    <div class="media" style="background-image:url('images/leather.png')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Leather Winter Jacket</div>
+        <div class="price">PKR 45,000</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+
+  <!-- Product 10 -->
+  <div class="card" data-tags="winter">
+    <div class="media" style="background-image:url('images/men (10).jpg')"></div>
+    <div class="info">
+      <div>
+        <div class="product-title">Wool Blend Scarf</div>
+        <div class="price">PKR 7,500</div>
+      </div>
+      <div><button class="icon-btn">♡</button></div>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <script>
+    // Simple filtering interaction
+    const chips = document.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.card');
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=> {
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cards.forEach(card=>{
+          if(filter==='all') { card.style.display='block'; return; }
+          const tags = card.dataset.tags.split(',');
+          if(tags.includes(filter)) card.style.display='block'; else card.style.display='none';
+        });
+        // smooth scroll to grid
+        document.getElementById('grid').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Accessibility: keyboard support for chips
+    chips.forEach(c=>{ c.tabIndex = 0; c.addEventListener('keydown', e=>{ if(e.key==='Enter') c.click(); }) });
+  </script>
+</body>
+</html>
